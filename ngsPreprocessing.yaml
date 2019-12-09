@@ -50,10 +50,6 @@ tools:
   owner: devteam
   tool_panel_section_label: "Bioinformatics"
 
-- name: ncbi_blast_plus
-  owner: devteam
-  tool_panel_section_label: "Bioinformatics"
-
 - name: clustalw
   owner: devteam
   tool_panel_section_label: "Bioinformatics"
