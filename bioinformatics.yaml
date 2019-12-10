@@ -54,6 +54,22 @@ tools:
   owner: crs4
   tool_panel_section_label: "Assembly"
 
+- name: gblocks
+  owner: earlhaminst
+  tool_panel_section_label: "Alignment curation"
+
+- name: noisy
+  owner: dcorreia
+  tool_panel_section_label: "Alignment curation"
+
+- name: ncbi_blast_plus
+  owner: devteam
+  tool_panel_section_label: "Blast"
+
+- name: emboss_5
+  owner: devteam
+  tool_panel_section_label: "Emboss"
+
 - name: fastqc
   owner: devteam
   tool_panel_section_label: "FASTQ quality control"
@@ -65,6 +81,10 @@ tools:
 - name: trimmomatic
   owner: pjbriggs
   tool_panel_section_label: "FASTQ quality control"
+
+- name: gatktools
+  owner: lz_hust
+  tool_panel_section_label: "GATK"
 
 - name: bwa
   owner: devteam
@@ -78,30 +98,6 @@ tools:
   owner: devteam
   tool_panel_section_label: "Mapping"
   
-- name: suite_bcftools
-  owner: iuc
-  tool_panel_section_label: "SAM/VCF"
-
-- name: coverage_stats
-  owner: peterjc
-  tool_panel_section_label: "SAM/VCF"
-
-- name: gatktools
-  owner: lz_hust
-  tool_panel_section_label: "GATK"
-
-- name: picard
-  owner: devteam
-  tool_panel_section_label: "Picard"
-
-- name: naive_variant_caller
-  owner: blankenberg
-  tool_panel_section_label: "SAM/VCF"
-
-- name: ncbi_blast_plus
-  owner: devteam
-  tool_panel_section_label: "Blast"
-
 - name: clustalw
   owner: devteam
   tool_panel_section_label: "Multiple Sequence Alignment"
@@ -114,13 +110,17 @@ tools:
   owner: rnateam
   tool_panel_section_label: "Multiple Sequence Alignment"
 
-- name: gblocks
-  owner: earlhaminst
-  tool_panel_section_label: "Alignment curation"
+- name: suite_bcftools
+  owner: iuc
+  tool_panel_section_label: "SAM/VCF"
 
-- name: noisy
-  owner: dcorreia
-  tool_panel_section_label: "Alignment curation"
+- name: coverage_stats
+  owner: peterjc
+  tool_panel_section_label: "SAM/VCF"
+
+- name: naive_variant_caller
+  owner: blankenberg
+  tool_panel_section_label: "SAM/VCF"
 
 - name: phyml
   owner: vlefort
@@ -136,12 +136,8 @@ tools:
 
 - name: newick_display
   owner: dcorreia
-  tool_panel_section_label: "Tree rendering"
+  tool_panel_section_label: "Tree inference"
 
-- name: emboss_5
+- name: picard
   owner: devteam
-  tool_panel_section_label: "Emboss"
-
-- name: igvtools
-  owner: jjohnson
-  tool_panel_section_label: "IGV"
+  tool_panel_section_label: "Picard"
