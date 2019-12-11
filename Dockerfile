@@ -28,17 +28,6 @@ ADD assets/img/bioinfoCloud.png $GALAXY_CONFIG_DIR/web/welcome_image.png
 ADD welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
 
 
-# Mark folders as imported from the host.
-VOLUME ["/export/", "/data/", "/var/lib/docker"]
-
-# Expose port 80 (webserver), 21 (FTP server), 8800 (Proxy)
-EXPOSE :80
-EXPOSE :21
-EXPOSE :8800
-
-# Autostart script that is invoked during container start
-CMD ["/usr/bin/startup"]
-
 # Add workflows to the Docker image
 # ADD ./rna-workbench-workflow/* $GALAXY_HOME/workflows/
 

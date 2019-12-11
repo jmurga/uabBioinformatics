@@ -40,20 +40,8 @@
 api_key: admin
 galaxy_instance: http://localhost:8080
 install_resolver_dependencies: True
-install_tool_dependencies: False
+install_tool_dependencies: True
 tools:
-- name: mira4_assembler
-  owner: peterjc
-  tool_panel_section_label: "Assembly"
-
-- name: quast
-  owner: iuc
-  tool_panel_section_label: "Assembly"
-
-- name: sspace
-  owner: crs4
-  tool_panel_section_label: "Assembly"
-
 - name: gblocks
   owner: earlhaminst
   tool_panel_section_label: "Alignment curation"
@@ -61,10 +49,6 @@ tools:
 - name: noisy
   owner: dcorreia
   tool_panel_section_label: "Alignment curation"
-
-- name: ncbi_blast_plus
-  owner: devteam
-  tool_panel_section_label: "Blast"
 
 - name: emboss_5
   owner: devteam
@@ -110,17 +94,33 @@ tools:
   owner: rnateam
   tool_panel_section_label: "Multiple Sequence Alignment"
 
+- name: package_weblogo_3_3
+  owner: devteam
+  tool_panel_section_label: "Multiple Sequence Alignment"
+
 - name: suite_bcftools
   owner: iuc
-  tool_panel_section_label: "SAM/VCF"
+  tool_panel_section_label: "Bcftools"
 
 - name: coverage_stats
   owner: peterjc
-  tool_panel_section_label: "SAM/VCF"
+  tool_panel_section_label: "Bcftools"
 
-- name: naive_variant_caller
-  owner: blankenberg
-  tool_panel_section_label: "SAM/VCF"
+- name: bamtools
+  owner: devteam
+  tool_panel_section_label: "BAMtools"
+
+- name: bamtools_filter
+  owner: devteam
+  tool_panel_section_label: "BAMtools"
+
+- name: bamtools_split
+  owner: devteam
+  tool_panel_section_label: "BAMtools"
+
+- name: suite_samtools
+  owner: iuc
+  tool_panel_section_label: "SAMtools"
 
 - name: phyml
   owner: vlefort
@@ -141,3 +141,15 @@ tools:
 - name: picard
   owner: devteam
   tool_panel_section_label: "Picard"
+
+- name: phylogeny_converter
+  owner: izsam
+  tool_panel_section_label: "Convert Formats"
+
+- name: allele_counts
+  owner: nick
+  tool_panel_section_label: "Variant Calling"
+
+- name: naive_variant_caller
+  owner: blankenberg
+  tool_panel_section_label: "Variant Calling"
