@@ -1,4 +1,4 @@
-# uabBioinformatics
+# Galaxy Docker Image - Bioinformatics Universitat Autònoma de Barcelona
 Repository including a Galaxy Docker Image (Galaxy flavor). Galaxy instance is prepared to include software related with pre-processing NGS data, sequence statistics, pairwise alignment, multiple alignment sequence and variant calling. We deposited all the required software to complete the [bioinformatics course](https://stepik.org/course/1171/) from Genetics bachelor's degree at Universitat Autonoma de Barcelona. Please check [Galaxy-Training](https://training.galaxyproject.org/training-material/) when to understand pipelines in Galaxy!
 
 Galaxy Docker Image is based on [docker-galaxy-stable](https://github.com/bgruening/docker-galaxy-stable), other [Galaxy flavours](https://github.com/bgruening/docker-galaxy-stable#List-of-Galaxy-flavours) and [Galaxy Training](https://galaxyproject.github.io/training-material/).
