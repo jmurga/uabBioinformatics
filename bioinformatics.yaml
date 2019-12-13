@@ -153,3 +153,10 @@ tools:
 - name: naive_variant_caller
   owner: blankenberg
   tool_panel_section_label: "Variant Calling"
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+
+- name: freebayes
+  owner: devteam
+  tool_panel_section_label: "Variant Calling"
+
