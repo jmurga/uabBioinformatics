@@ -7,6 +7,7 @@ FROM bgruening/galaxy-stable
 MAINTAINER Jesus Murga Moreno, jesus.murga@uab.cat
 
 ENV GALAXY_CONFIG_BRAND UAB-Bioinformatics
+ENV GALAXY_CONFIG_TOOL_PATH=/galaxy-central/tools/
 
 WORKDIR /galaxy-central
 
@@ -27,6 +28,13 @@ RUN install-tools $GALAXY_ROOT/tools.yaml && \
 ADD assets/img/bioinfoCloud.png $GALAXY_CONFIG_DIR/web/welcome_image.png
 ADD welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
 
+# Mark folders as imported from the host.
+VOLUME ["/export/", "/data/", "/var/lib/docker"]
+
+# Expose port 80 (webserver), 21 (FTP server), 8800 (Proxy)
+EXPOSE :80
+EXPOSE :21
+EXPOSE :8800
 
 # Add workflows to the Docker image
 # ADD ./rna-workbench-workflow/* $GALAXY_HOME/workflows/
