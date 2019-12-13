@@ -1,4 +1,4 @@
-# Galaxy uabBioinformatics. Based on docker-galaxy and galaxy-rna-workbench
+# Galaxy uabBioinformatics. Based on docker-galaxy-stable and galaxy-rna-workbench
 ## https://github.com/bgruening/docker-galaxy-stable
 ## https://github.com/bgruening/galaxy-rna-workbench
 
