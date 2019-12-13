@@ -15,7 +15,7 @@ docker pull quay.io/erasche/docker-rstudio-notebook
 # To execute docker containers from galaxy
 sudo chmod g+rx /var/run/docker.sock
 # To run docker image
-docker run -i -t -p 8080:80 -p 8021:21 -p 8800:8800 \
+docker run -d -t -p 8080:80 -p 8021:21 -p 8800:8800 \
  --privileged=True \
  -e GALAXY_DOCKER_ENABLED=True \
  -v /var/run/docker.sock:/var/run/docker.sock \
