@@ -94,10 +94,6 @@ tools:
   owner: rnateam
   tool_panel_section_label: "Multiple Sequence Alignment"
 
-- name: package_weblogo_3_3
-  owner: devteam
-  tool_panel_section_label: "Multiple Sequence Alignment"
-
 - name: suite_bcftools
   owner: iuc
   tool_panel_section_label: "Bcftools"
@@ -137,6 +133,12 @@ tools:
 - name: newick_display
   owner: dcorreia
   tool_panel_section_label: "Tree inference"
+
+- name: weblogo3
+  owner: devteam
+  tool_panel_section_label: "Tree inference"
+  install_tool_dependencies: True
+  install_repository_dependencies: True
 
 - name: picard
   owner: devteam
