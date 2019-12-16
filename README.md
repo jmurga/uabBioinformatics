@@ -9,6 +9,8 @@ Galaxy Docker Image is based on [docker-galaxy-stable](https://github.com/bgruen
 Some connections to docker container are still in development. For that reason some scripts installed from [Galaxy ToolShed](https://toolshed.g2.bx.psu.edu) are not working. You may take this into account if you want to expand the Galaxy flavour.
 
 ```bash 
+# Download galaxy 
+docker pull jmurga/uab-bioinformatics
 # To include docker jupyter and rstudio
 docker pull bgruening/docker-jupyter-notebook
 docker pull erasche/docker-rstudio-notebook
