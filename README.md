@@ -38,5 +38,5 @@ docker build -t uab/debian-bioinformatics -f debian/Dockerfile .
 
 To run the images
 ```bash
-
+-v $(PWD)/local-dir/:
 ```
