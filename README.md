@@ -1,4 +1,4 @@
-## Genetics bachelor's degree - Universitat Autònoma de Barcelona
+## Bioinformatics - Universitat Autònoma de Barcelona
 
 Repository including material developed to complete the [bioinformatics course](https://stepik.org/course/1171/) from Genetics bachelor's degree at Universitat Autonoma de Barcelona. We recommend use Galaxy instance or Debian image included at the repository, both dockerized. They are prepared to include software related with pre-processing NGS data, sequence statistics, pairwise alignment, multiple alignment sequence and variant calling. Please check [Galaxy-Training](https://training.galaxyproject.org/training-material/) when to understand pipelines in Galaxy!
 
