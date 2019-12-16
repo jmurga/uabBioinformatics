@@ -26,3 +26,17 @@ docker run -d -t -p 8080:80 -p 8021:21 -p 8800:8800 \
 ```
 
 ### Debian image
+Debian image conda enviroment is included on folder *debian/*. Based on [miniconda image](https://hub.docker.com/r/continuumio/miniconda3). Enviroment *bioinformatics* and user *student* are activated by default when running the image. *student* user has no root permission to avoid problems with *root* specific paths and commands. */home/student* folder is the main working directory where user *student* has full permisions. In addition *student* cannot create or modificate conda enviroments.
+
+To build or pull the image run the following commands
+```bash 
+docker pull jmurga/uab-debian-bioinformatics
+# or
+docker build -t uab/debian-bioinformatics -f debian/Dockerfile .
+
+```
+
+To run the images
+```bash
+
+```
