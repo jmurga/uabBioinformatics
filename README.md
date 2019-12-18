@@ -26,17 +26,25 @@ docker run -d -t -p 8080:80 -p 8021:21 -p 8800:8800 \
 ```
 
 ### Debian image
-Debian image conda enviroment is included on folder *debian/*. Based on [miniconda image](https://hub.docker.com/r/continuumio/miniconda3). Enviroment *bioinformatics* and user *student* are activated by default when running the image. *student* user has no root permission to avoid problems with *root* specific paths and commands. */home/student* folder is the main working directory where user *student* has full permisions. In addition *student* cannot create or modificate conda enviroments.
+Debian image conda enviroment is included on folder *debian/*. Based on [miniconda image](https://hub.docker.com/r/continuumio/miniconda3). Enviroment *bioinformatics* and user *student* are activated by default when running the image. *student* user has no root permission to avoid problems with specific *root* paths and commands. */home/student* folder is the main working directory where user *student* has full permisions. In addition *student* cannot create or modificate conda enviroments.
+
+Include two images 
 
 To build or pull the image run the following commands
 ```bash 
 docker pull jmurga/uab-debian-bioinformatics
 # or
 docker build -t uab/debian-bioinformatics -f debian/Dockerfile .
-
 ```
 
-To run the images
+To run the images with jupyter notebook on [localhost:8888](http://localhost:8888)
+
 ```bash
--v $(PWD)/local-dir/:
+# Run docker bash interactive session
+docker run -i -t -p 8888:8888 \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY=unix$DISPLAY \
+    ubuntu/bioinfo /bin/bash
+# Run only jupyter notebook from docker image
+docker run -i -t -p 8888:8888 uab/bioinfo /bin/bash -c "jupyter notebook --ip='*' --port=8888 --no-browser"
 ```
