@@ -39,6 +39,6 @@ RUN conda init bash
 RUN mkdir -p session8 session9
 ADD bi/session8/ /home/student/session8/
 ADD bi/session9/ /home/student/session9/
-RUN wget --output-document=/home/student/genomics http://bioinformatica.uab.cat/gpi
+RUN wget --output-document=/home/student/dataGenomics.tar.gz http://bioinformatica.uab.cat/gpi
 
 CMD [ "/bin/bash" ]
