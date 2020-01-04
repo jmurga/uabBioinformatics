@@ -27,7 +27,7 @@ ADD ubuntu/genomics.yml /tmp/environment2.yml
 
 RUN conda env create -n bioinformatics -f /tmp/environment1.yml 
 ENV PATH /opt/conda/envs/bioinformatics/bin:$PATH
-RUN conda env create -n genomics -f /tmp/environment1.yml 
+RUN conda env create -n genomics -f /tmp/environment2.yml 
 ENV PATH /opt/conda/envs/genomics/bin:$PATH
 
 RUN groupadd -g 2000 student \

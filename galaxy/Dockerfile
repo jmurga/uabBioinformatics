@@ -11,25 +11,24 @@ ENV GALAXY_CONFIG_TOOL_PATH=/galaxy-central/tools/
 
 WORKDIR /galaxy-central
 
-
 # Install tools
 
 RUN install-biojs msa
 
-ADD dataManagers.yaml $GALAXY_ROOT/managers.yaml
-RUN install-tools $GALAXY_ROOT/managers.yaml && \
+ADD galaxy/dataManagers.yaml $GALAXY_ROOT/dataManagers.yaml
+RUN install-tools $GALAXY_ROOT/dataManagers.yaml && \
     /tool_deps/_conda/bin/conda clean --tarballs && \
     rm /export/galaxy-central/ -rf
 
-ADD bioinformatics.yaml $GALAXY_ROOT/tools.yaml
+ADD galaxy/bioinformatics.yaml $GALAXY_ROOT/tools.yaml
 RUN install-tools $GALAXY_ROOT/tools.yaml && \
     /tool_deps/_conda/bin/conda clean --tarballs && \
     rm /export/galaxy-central/ -rf
 
 # Container Style.
 # Same structure of galaxy-rna-workbench. Bootstrap framework maintained customizing welcome page
-ADD assets/img/bioinfoCloud.png $GALAXY_CONFIG_DIR/web/welcome_image.png
-ADD welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
+ADD galaxy/assets/img/bioinfoCloud.png $GALAXY_CONFIG_DIR/web/welcome_image.png
+ADD galaxy/welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
 
 # Mark folders as imported from the host.
 VOLUME ["/export/", "/data/", "/var/lib/docker"]
