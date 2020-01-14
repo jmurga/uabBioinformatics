@@ -46,7 +46,6 @@ dependencies:
   - intel-openmp=2019.1=144
   - jellyfish=2.2.10=h2d50403_0
   - jemalloc=5.1.0=hfc679d8_0
-  - jpeg=9c=h470a237_1
   - libboost=1.67.0=h46d08c1_4
   - libcurl=7.61.0=h1ad7b7a_0
   - libdb=6.1.26=0

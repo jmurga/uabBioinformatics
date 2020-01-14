@@ -20,13 +20,19 @@ chmod g+rx /var/run/docker.sock
 docker run -d -t -p 8080:80 -p 8021:21 -p 8800:8800 \
  --privileged=True \
  -e GALAXY_DOCKER_ENABLED=True \
+ -e HOSTID=$(id -u) \
  -v /var/run/docker.sock:/var/run/docker.sock \
- -v /home/${USER}/galaxy_storage/:/export/ \
+ -v /${HOME}/galaxy_storage/:/export/ \
  jmurga/uab-bioinformatics
 ```
 
 ### Ubuntu image
-Ubuntu image conda enviroment is included on folder *ubuntu/*. Including miniconda [miniconda3](https://repo.anaconda.com/miniconda/Miniconda3-4.7.12-Linux-x86_64.sh) to install software easly. Enviroment *base* are activated by default when running the image. */home/student* folder is the main working directory where user *student* should work and include the data. In addition *student* cannot create or modificate conda enviroments. If you want to use GUI applications you need to configure docker when running.
+Ubuntu image conda enviroment is included on folder *ubuntu/*. Including miniconda [miniconda3](https://repo.anaconda.com/miniconda/Miniconda3-4.7.12-Linux-x86_64.sh) to install software easly. Enviroment *base* are activated by default when running the image. */data* folder is the main working directory where user (logged as root) should work and include the data. The will be include mounting any folder over */data* through docker. Please, note that any file created on mounted volumes will have *root* permission. Before close the session please execute the following command to give permisson:
+```bash
+chown -R ${HOSTID}:${HOSTID} /data
+```
+
+If you want to use GUI applications you need to configure docker when running. 
 
 To build or pull the image run the following commands.
 ```bash 
@@ -39,7 +45,7 @@ To run the images with jupyter notebook on [localhost:8888](http://localhost:888
 
 ```bash
 # Run docker bash interactive session
-docker run -i -t -p 8888:8888 jmurga/uab-bioinformatics
+docker run -i -t -p 8888:8888 -v ${HOME}/<anyData>:/data/<anyData> -e HOSTID=$(id -u) jmurga/uab-bioinformatics /bin/bash
 # Run only jupyter notebook from docker image
 docker run -i -t -p 8888:8888 uab/bioinfo /bin/bash -c "jupyter notebook --ip='*' --port=8888 --no-browser"
 ```
