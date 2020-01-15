@@ -27,11 +27,11 @@ docker run -d -t -p 8080:80 -p 8021:21 -p 8800:8800 \
 ```
 
 ### Ubuntu image
-Ubuntu image conda enviroment is included on folder *ubuntu/*. Including miniconda [miniconda3](https://repo.anaconda.com/miniconda/Miniconda3-4.7.12-Linux-x86_64.sh) to install software easly. Enviroment *base* are activated by default when running the image. */data* folder is the main working directory where user (logged as root) should work and include the data. The will be include mounting any folder over */data* through docker. Please, note that any file created on mounted volumes will have *root* permission. Before close the session please execute the following command to give permisson:
+Ubuntu image is included on folder *ubuntu/*. We include [miniconda3](https://repo.anaconda.com/miniconda/Miniconda3-4.7.12-Linux-x86_64.sh) to install software easly. Enviroment *base* are activated by default when running the image. */data* folder is the main working directory where user (logged as root) should work and include the data. Any data should be include mounting folders over */data* through docker. Please, note that any file created on mounted volumes will have *root* permission. Before close the session please execute the following command to give permisson:
 ```bash
+# ${HOSTID} is defined inside the image if you run docker with proper instructions describe bellow
 chown -R ${HOSTID}:${HOSTID} /data
 ```
-
 If you want to use GUI applications you need to configure docker when running. 
 
 To build or pull the image run the following commands.
@@ -41,11 +41,11 @@ docker pull jmurga/uab-bioinformatics
 docker build -t uab/ubuntu-bioinformatics -f ubuntu/Dockerfile .
 ```
 
-To run the images with jupyter notebook on [localhost:8888](http://localhost:8888)
+To run the images (jupyter notebook will start on [localhost:8888](http://localhost:8888)):
 
 ```bash
 # Run docker bash interactive session
-docker run -i -t -p 8888:8888 -v ${HOME}/<anyData>:/data/<anyData> -e HOSTID=$(id -u) jmurga/uab-bioinformatics /bin/bash
+docker run -i -t -p 8888:8888 -v ${HOME}/<anyData>:/data/<anyData> -e HOSTID=$(id -u) jmurga/uab-bioinformatics
 # Run only jupyter notebook from docker image
 docker run -i -t -p 8888:8888 uab/bioinfo /bin/bash -c "jupyter notebook --ip='*' --port=8888 --no-browser"
 ```
