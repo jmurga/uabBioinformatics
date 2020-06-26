@@ -17,13 +17,13 @@ docker pull erasche/docker-rstudio-notebook
 # To execute docker containers from galaxy
 chmod g+rx /var/run/docker.sock
 # To run docker image
-docker run -d -t -p 8080:80 -p 8021:21 -p 8800:8800 \
+docker run -i -t -p 8080:80 -p 8021:21 -p 8800:8800 \
  --privileged=True \
  -e GALAXY_DOCKER_ENABLED=True \
  -e HOSTID=$(id -u) \
  -v /var/run/docker.sock:/var/run/docker.sock \
- -v /${HOME}/galaxy_storage/:/export/ \
- jmurga/uab-bioinformatics
+ -v ${HOME}/galaxy_storage/:/export/ \
+ jmurga/uab-galaxy
 ```
 
 ### Ubuntu image
@@ -32,20 +32,20 @@ Ubuntu image is included on folder *ubuntu/*. We include [miniconda3](https://re
 # ${HOSTID} is defined inside the image if you run docker with proper instructions describe bellow
 chown -R ${HOSTID}:${HOSTID} /data
 ```
-If you want to use GUI applications you need to configure docker when running. 
+If you want to use GUI applications you need to configure docker when running. Please open up your X server on your host using ``xhost +`` before run.
 
 To build or pull the image run the following commands.
 ```bash 
 docker pull jmurga/uab-bioinformatics
 # or
-docker build -t uab/ubuntu-bioinformatics -f ubuntu/Dockerfile .
+docker build -t jmurga/uab-bioinformatics -f debian/Dockerfile .
 ```
 
 To run the images (jupyter notebook will start on [localhost:8888](http://localhost:8888)):
-
 ```bash
+xhost +local:all
 # Run docker bash interactive session
-docker run -i -t -p 8888:8888 -v ${HOME}/<anyData>:/data/<anyData> -e HOSTID=$(id -u) jmurga/uab-bioinformatics
+docker run -i -t -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix jmurga/uab-bioinformatics -v ${HOME}/<anyData>:/data/<anyData> -e HOSTID=$(id -u) jmurga/uab-bioinformatics
 # Run only jupyter notebook from docker image
-docker run -i -t -p 8888:8888 uab/bioinfo /bin/bash -c "jupyter notebook --ip='*' --port=8888 --no-browser"
+docker run -i -t -p 8888:8888 -v ${HOME}/<anyData>:/data/<anyData> jmurga/uab-bioinformatics /bin/bash -c "/opt/conda/envs/bioinformatics/bin/jupyter-lab --ip='*' --port=8888 --no-browser --allow-root"
 ```

@@ -7,13 +7,15 @@ FROM bgruening/galaxy-stable
 MAINTAINER Jesus Murga Moreno, jesus.murga@uab.cat
 
 ENV GALAXY_CONFIG_BRAND UAB-Bioinformatics
-ENV GALAXY_CONFIG_TOOL_PATH=/galaxy-central/tools/
+ENV GALAXY_CONFIG_TOOL_PATH=/galaxy-central/tools/ \ 
+    GALAXY_CONFIG_CONDA_AUTO_INSTALL=True \
+    GALAXY_CONFIG_CONDA_AUTO_INIT=True
 
-WORKDIR /galaxy-central
+# WORKDIR /galaxy-central
 
 # Install tools
 
-RUN install-biojs msa
+#RUN install-biojs msa
 
 ADD galaxy/dataManagers.yaml $GALAXY_ROOT/dataManagers.yaml
 RUN install-tools $GALAXY_ROOT/dataManagers.yaml && \
